@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple JQuery HTTP POST/GET request</title>
+	<script src="jquery.js"></script>
+	<script>
+		
+	/*  HTTP GET  */
+		
+		$(document).ready(function(){
+			$("#get").click(function(){
+				$.get( "http://echo.jsontest.com/key/value/one/two", function() {			  
+				})
+			  	.done(function(data,status) {				
+			    	alert( ""+data.one);
+			  	})
+			  	.fail(function() {
+			    	alert( "error" );
+			  	})
+			});
+		});
+		
+		
+	/*  HTTP POST  */
+		
+		$(document).ready(function(){
+			$("#post").click(function(){
+				$.post( "http://localhost:8000/login/", {
+					//Send 'key' as parameter
+    				key:"satu",
+ 			   	},function() {			  
+				})
+				.done(function(data,status) {				
+				    alert( ""+data.message);
+				})
+				.fail(function() {
+				    alert( "error" );
+				})
+			});
+		});	
+		
+	</script>
+</head>
+<body>
+	<button id="get">GET</button> 
+	<button id="post">POST</button> 
+</body>
+</html>
